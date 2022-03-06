@@ -91,7 +91,7 @@ Please read this [comprehensive guide](https://opensource.guide/how-to-contribut
 
 
 ## Support and contact details
-Contact [Tracy Wangari](tracyjacobs775@gmail.com) for further help/support
+Incase of any inquires reach me out at tracyjacobs775@gmail.com
 
 ### License
 MIT
