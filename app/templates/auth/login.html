@@ -1,14 +1,14 @@
-
+{% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content%}
 
-<div class="container">
+<div class="container" >
   <div class="row">
 
     <div class="col-md-2"> </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8" >
       <!-- Flash message -->
       {% for message in get_flashed_messages() %}
           <div class="alert alert-danger">
@@ -18,10 +18,13 @@
 
       {% endfor %}
       <!-- Login form  -->
+      
 
-      {{ wtf.quick_form(login_form) }}
+      <div class="container p-8 " style="margin-top: 40px;" align="center"> {{ wtf.quick_form(login_form) }}
+        <p> Don't  have an account?  <a href="{{url_for('auth.register')}}">Sign up here</a></p>
+      </div>
 
-      <p> Don't  have an account?  <a href="{{url_for('auth.register')}}">Sign up here</a></p>
+      
 
     </div>
 

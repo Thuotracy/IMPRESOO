@@ -20,8 +20,8 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     pitches=db.relationship('Pitch',backref = 'user',lazy="dynamic")
     comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
-    post_likes = db.relationship('PostLikes', backref=db.backref('user', lazy='joined'),
-                                 lazy='dynamic', cascade='all, delete-orphan')
+    # post_likes = db.relationship('PostLikes', backref=db.backref('user', lazy='joined'),
+    #                              lazy='dynamic', cascade='all, delete-orphan')
 
     @property
     def password(self):
@@ -57,13 +57,15 @@ class Pitch(db.Model):
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comments= db.relationship('Comment', backref='title', lazy='dynamic')
-    user_likes = db.relationship('PostLikes', backref=db.backref('post', lazy='joined'),
-                                 lazy='dynamic', cascade='all, delete-orphan')
-    def __init__(self,id,title,pitch):
-        self.id = id
-        self.title = title
+    # user_likes = db.relationship('PostLikes', backref=db.backref('post', lazy='joined'),
+    #                              lazy='dynamic', cascade='all, delete-orphan')
+    # def __init__(self,id,title,pitch):
+    #     self.id = id
+    #     self.title = title
     
-        self.pitch = pitch
+    #     self.pitch = pitch
+    def __repr__(self):
+        return f'Pitch {self.title}'
 
 
 

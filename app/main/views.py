@@ -7,11 +7,15 @@ from .. import db,photos
 
 
 @main.route('/')
+@main.route('/index')
 def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    pitch_list= Pitch.query.all()
+    return render_template('index.html', pitch=pitch_list)
+
+
 
 @main.route('/product')
 def product():
@@ -41,11 +45,11 @@ def productpitch():
     if form.validate_on_submit():
         title = form.title.data
         pitch=form.pitch.data
-        new_pitch=Pitch(title=title,pitch=pitch,user=current_user)
+        new_pitch=Pitch(title=title,pitch=pitch)
         new_pitch.save_pitch()
         return redirect(url_for('main.product'))
 
-    return render_template('pitch.html',pitch_form=form)
+    return render_template('pitch.html',pitch_form=form,user=current_user)
 
 
 

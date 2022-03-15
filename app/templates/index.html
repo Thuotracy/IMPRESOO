@@ -1,4 +1,5 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} 
+{% import 'macros.html' as macro %}
 
 <!-- Styles block -->
 
@@ -11,10 +12,18 @@
 
       <!-- Content block -->
   {% block content %}
+  
 
       <!-- Popular movie -->
   <div class="well well-lg">
-  <h1> ONE MINUTE PITCH</h1>
+  <h1 align=center> ONE MINUTE PITCH</h1>
+  <h3 align="center"> In life, you only have 60 seconds to impress someone. 1 minute can make or break you. How do we make sure that you use your 1 minute to actually say something meaningful? </h3>
+  </div>
+  <div class="addpitch" align="center">
+    <a  class="btn btn-success"  href="{{url_for('main.productpitch')}}">add pitch</a>
+  </div>
+<div class="container">
+  {{ macro.displayPitches(pitch_list)}}
 </div>
 
 
