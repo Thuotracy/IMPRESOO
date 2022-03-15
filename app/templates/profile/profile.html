@@ -23,16 +23,21 @@
     {%else%}
     <p>No profile picture</p>
     {% endif %}
+      <br><br>
 
     {% if user == current_user %}
     <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
 
       <input type="file"  name="photo" class="form-control" required>
+      <br><br>
+
       <input type="submit">
     </form>
       {% endif %}
 
     {% if user == current_user %}
+    <br><br>
+
     <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
 {% endif %}
   </div>
@@ -40,5 +45,3 @@
 </div>
 {% endblock %}
 
-<!-- user.post_likes  query-->
-<!-- post.user_likes -->
